@@ -1,6 +1,7 @@
 # Classic Tic-Tac-Toe Game
 
-![Tic-Tac-Toe Screenshot](screenshot.png)
+<img width="988" height="865" alt="image" src="https://github.com/user-attachments/assets/7ac35b5d-1056-4178-bb70-4c4c9027831c" />
+
 
 A modern implementation of the classic Tic-Tac-Toe game with player vs player and player vs computer modes, multiple difficulty levels, and game statistics tracking.
 
