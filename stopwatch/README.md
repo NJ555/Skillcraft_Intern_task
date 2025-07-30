@@ -1,6 +1,7 @@
 # NeoFusion Stopwatch Application
 
-![Stopwatch Screenshot](screenshot.png)
+<img width="835" height="864" alt="image" src="https://github.com/user-attachments/assets/f63dc404-717e-4dac-95d4-a1d4e46c43b2" />
+
 
 A modern stopwatch application with dual display modes - digital and analog. Toggle between sleek digital display with neon effects and a classic analog clock display.
 
