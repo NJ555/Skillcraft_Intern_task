@@ -2,7 +2,8 @@
 
 A sleek, responsive to-do application with dark/light mode, drag-and-drop functionality, and local storage persistence.
 
-![To-Do App Screenshot](screenshot.png)
+<img width="819" height="895" alt="image" src="https://github.com/user-attachments/assets/d1957202-306a-408e-9fea-c37c326617d9" />
+
 
 ## Features
 
