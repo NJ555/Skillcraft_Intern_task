@@ -2,7 +2,8 @@
 
 A sleek, responsive calculator with enhanced keyboard support that works perfectly with both main keyboard and numpad keys.
 
-![Calculator Screenshot](screenshot.png)
+<img width="509" height="911" alt="image" src="https://github.com/user-attachments/assets/a19cfe19-fc94-4f85-96d7-9a4966a3b343" />
+
 
 ## Features
 
@@ -34,9 +35,3 @@ A sleek, responsive calculator with enhanced keyboard support that works perfect
 | Backspace     | Delete last digit      |
 | Escape        | Clear calculator       |
 | %             | Percentage calculation |
-
-## Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/calculator-app.git
