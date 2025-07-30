@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoFusion | Dual-Mode Stopwatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/Stopwatch.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fa-solid fa-stopwatch"></i> NeoFusion Stopwatch</h1>
+      <p>Switch between modern digital and classic analog styles</p>
+    </div>
+    
+    <div class="mode-toggle">
+      <button id="digital-toggle" class="active">Digital</button>
+      <button id="analog-toggle">Analog</button>
+    </div>
+    
+    <div class="watch-container">
+      <!-- Digital Stopwatch -->
+      <div id="digital-watch" class="watch-display active">
+        <div id="display">00:00:00</div>
+        <div class="milliseconds">00</div>
+      </div>
+      
+      <!-- Analog Stopwatch -->
+      <div id="analog-watch" class="watch-display">
+        <div class="analog-clock">
+          <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand minute-hand"></div>
+            <div class="hand second-hand"></div>
+            <div class="center-circle"></div>
+          </div>
+        </div>
+        <div class="analog-display">00:00:00</div>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button id="start-btn" class="btn start">
+        <i class="fa-solid fa-play"></i> Start
+      </button>
+      <button id="pause-btn" class="btn pause">
+        <i class="fa-solid fa-pause"></i> Pause
+      </button>
+      <button id="reset-btn" class="btn reset">
+        <i class="fa-solid fa-rotate"></i> Reset
+      </button>
+      <button id="lap-btn" class="btn lap">
+        <i class="fa-solid fa-flag"></i> Lap
+      </button>
+    </div>
+    
+    <div class="laps-container">
+      <h3><i class="fa-solid fa-list"></i> Lap Times</h3>
+      <div class="laps" id="laps"></div>
+    </div>
+    
+    <div class="footer">
+      <p>Made with <i class="fa-solid fa-heart"></i> | NeoFusion Technologies</p>
+    </div>
+  </div>
+
+  <script src="scripts/Stopwatch.js"></script>
+</body>
+</html>

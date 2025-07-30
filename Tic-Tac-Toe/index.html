@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles/TTT.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1><i class="fas fa-times-circle"></i> Tic-Tac-Toe <i class="far fa-circle"></i></h1>
+            <p class="subtitle">The Classic Strategy Game</p>
+        </div>
+        
+        <div class="game-area">
+            <div class="game-board-section">
+                <div class="mode-buttons">
+                    <button id="pvp-btn" class="active-mode">
+                        <i class="fas fa-users"></i> Player vs Player
+                    </button>
+                    <button id="pvc-btn">
+                        <i class="fas fa-robot"></i> Player vs Computer
+                    </button>
+                </div>
+                
+                <div class="difficulty">
+                    <button id="easy-btn">
+                        <i class="fas fa-baby"></i> Easy
+                    </button>
+                    <button id="medium-btn" class="active-mode">
+                        <i class="fas fa-user"></i> Medium
+                    </button>
+                    <button id="hard-btn">
+                        <i class="fas fa-brain"></i> Hard
+                    </button>
+                </div>
+                
+                <div class="game-info">
+                    <div class="status">Player <span class="player-x">X</span>'s turn</div>
+                    <div id="game-mode">Mode: Player vs Player</div>
+                </div>
+                
+                <div class="board" id="board">
+                    <div class="cell" data-cell-index="0"></div>
+                    <div class="cell" data-cell-index="1"></div>
+                    <div class="cell" data-cell-index="2"></div>
+                    <div class="cell" data-cell-index="3"></div>
+                    <div class="cell" data-cell-index="4"></div>
+                    <div class="cell" data-cell-index="5"></div>
+                    <div class="cell" data-cell-index="6"></div>
+                    <div class="cell" data-cell-index="7"></div>
+                    <div class="cell" data-cell-index="8"></div>
+                </div>
+                
+                <div class="controls">
+                    <button id="restart-btn">
+                        <i class="fas fa-redo"></i> Restart Game
+                    </button>
+                    <button id="new-game-btn">
+                        <i class="fas fa-plus-circle"></i> New Game
+                    </button>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <h2 class="stats-title"><i class="fas fa-chart-line trophy"></i> Game Statistics</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="player-stat">
+                            <div class="player-icon x"><i class="fas fa-times"></i></div>
+                            <div class="stat-label">Player X Wins</div>
+                        </div>
+                        <div class="stat-value" id="stat-x-wins">0</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="player-stat">
+                            <div class="player-icon o"><i class="far fa-circle"></i></div>
+                            <div class="stat-label">Player O Wins</div>
+                        </div>
+                        <div class="stat-value" id="stat-o-wins">0</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-label">Total Games Played</div>
+                        <div class="stat-value" id="stat-total-games">0</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-label">Draws</div>
+                        <div class="stat-value" id="stat-draws">0</div>
+                    </div>
+                </div>
+                
+                <h3 class="history-title"><i class="fas fa-history"></i> Recent Games</h3>
+                <div class="history-list" id="history-list">
+                    <div class="history-item">
+                        <span>No games played yet</span>
+                    </div>
+                </div>
+                
+                <button class="reset-stats" id="reset-stats-btn">
+                    <i class="fas fa-trash-alt"></i> Reset Statistics
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/TTT.js"></script>
+</body>
+</html>

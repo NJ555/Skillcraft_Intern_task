@@ -1,0 +1,417 @@
+:root {
+  --neon-blue: #0ff;
+  --neon-pink: #f0f;
+  --neon-purple: #90f;
+  --dark-bg: #0e0e1f;
+  --darker-bg: #0a0a16;
+  --card-bg: rgba(30, 30, 50, 0.7);
+  --text-light: #fff;
+  --text-gray: #aaa;
+  --shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  --shadow-pink: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+  color: var(--text-light);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 20%);
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+  border-radius: 22px;
+  z-index: -1;
+  animation: border-glow 3s infinite alternate;
+}
+
+@keyframes border-glow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.header p {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+}
+
+.mode-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.mode-toggle button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.mode-toggle button.active {
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  color: #000;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+}
+
+.mode-toggle button:hover:not(.active) {
+  background: rgba(0, 255, 255, 0.2);
+}
+
+.watch-container {
+  position: relative;
+  height: 280px;
+  margin-bottom: 25px;
+}
+
+.watch-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.watch-display.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Digital Display */
+#digital-watch {
+  background: rgba(10, 10, 30, 0.7);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: var(--shadow);
+}
+
+#display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4.5rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+.milliseconds {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  margin-top: -10px;
+}
+
+/* Analog Display */
+#analog-watch {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.analog-clock {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.clock-face {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  background: rgba(30, 30, 40, 0.8);
+  border: 4px solid #333;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.clock-face::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 10px;
+  z-index: 5;
+}
+
+.hour-hand {
+  width: 6px;
+  height: 60px;
+  background: #fff;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.minute-hand {
+  width: 4px;
+  height: 90px;
+  background: #fff;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.second-hand {
+  width: 2px;
+  height: 100px;
+  background: var(--neon-blue);
+  transform: translate(-50%, -100%) rotate(0deg);
+  box-shadow: 0 0 5px var(--neon-blue);
+}
+
+.analog-display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #ffd700;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn i {
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.start {
+  background: linear-gradient(90deg, #00b09b, #96c93d);
+  color: #000;
+}
+
+.pause {
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  color: #000;
+}
+
+.reset {
+  background: linear-gradient(90deg, #2193b0, #6dd5ed);
+  color: #000;
+}
+
+.lap {
+  background: linear-gradient(90deg, #834d9b, #d04ed6);
+  color: #000;
+}
+
+.laps-container {
+  background: rgba(20, 20, 40, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.laps-container h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 15px;
+  color: var(--neon-pink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.laps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  border-left: 3px solid var(--neon-blue);
+}
+
+.lap-number {
+  color: var(--neon-blue);
+  font-weight: bold;
+}
+
+.lap-time {
+  color: var(--text-light);
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.footer i {
+  color: var(--neon-pink);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  #display {
+    font-size: 3.5rem;
+  }
+  
+  .analog-clock {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 1.7rem;
+  }
+  
+  #display {
+    font-size: 2.8rem;
+  }
+  
+  .analog-clock {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+  
+  .controls {
+    gap: 10px;
+  }
+}
